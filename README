@@ -1,4 +1,7 @@
+JSON.stringify(randomObject) sometimes crashes.
 
-Copy the objects to be dumped and annotate it with object IDs, cycles, functions, undefined, prototype properties.
-The resulting array is suitable for JSON.stringify()
+JSON.stringify(JsObjDump.annotate(randomObject)) will never crash.
 
+JsObjDump is a library for creating copies of objects suitable for logging and debug displays.  There are a number of options to control what information about the object is included in its copy, and how much information is too much.
+
+Check out the examples under test/ for more information.
