@@ -11,7 +11,10 @@ var JsObjDump = (function() {
   var BORING_CONS  = [Object, Function];
   var BORING_PROTO = [Object.prototype, Function.prototype];
   function set_prefs() {
-    var o = console.options ? console.options : {};
+    var o = {};
+    if (this.console && this.console.options) {
+        o = this.console.options;
+    }
     MAX_LINE_COUNT  = o.MAX_LINE_COUNT  || 3000;         // bail if we generate more lines than this
     MAX_DEPTH       = o.MAX_DEPTH       || 8;            // bail if we go deeper than x levels
     FUNCTION_SOURCE = o.FUNCTION_SOURCE || false;        // show full source code of functions
