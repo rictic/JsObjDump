@@ -1,4 +1,3 @@
-
 var JsObjDump = (function() {
 
   var seen;
@@ -150,7 +149,7 @@ var JsObjDump = (function() {
     arraysToTag = null;
   }
   
-  function annotate() { /*arguments*/
+  function annotate(var_args) { /*arguments*/
     init();
 
     var annotated = []; // copy of arguments, annotated with links to cycles, functions, undefined
@@ -170,7 +169,7 @@ var JsObjDump = (function() {
     }
   }
   
-  function annotate_list () { /*arguments*/
+  function annotate_list(var_args) { /*arguments*/
     var annotated = annotate.apply(null,arguments);
     if (arguments.length === 1){
       return [annotated];
