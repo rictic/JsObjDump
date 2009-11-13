@@ -62,6 +62,7 @@ var JsObjDump = (function() {
       else if (isArray(obj)) { typ = 'array'; } // WILL: this will stop full dump on a = new Array(11,22,33); a.will=true;
     }
     if (obj instanceof RegExp) { typ = 'regexp';}
+    if (obj instanceof String) { typ = 'string';} //typeof new String("hello") === "object"
     if (typ!=='object' && typ!=='function' && typ!=='array') { // is it a boolean, number, string, date, regexp, undefined, null
       if (typ==='undefined') { return '~~UNDEFINED~~'; }
       else {                  return obj; }
